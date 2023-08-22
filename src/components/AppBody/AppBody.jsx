@@ -1,13 +1,12 @@
 import React from "react";
 import styles from "./AppBody.module.css";
-import PythonData from "../../data/semester_2/PythonProgramming";
+
 import Questions from "./Questions";
 
-function AppBody() {
-  const weekData = PythonData[0];
 
+function AppBody(props) {
+  const weekData = props.data;
   const questions = weekData.questions;
-
   return (
     <>
       <main className={styles.container}>

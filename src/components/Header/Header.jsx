@@ -1,12 +1,18 @@
 import React, { useState } from "react";
 import styles from "./Header.module.css";
+import { Link } from "react-router-dom";
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeNav, setActiveNav] = useState("");
 
   const menuClickHandler = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  // const navClickHandler = (nav)=>{
+
+  // }
 
   return (
     <>
@@ -15,7 +21,15 @@ function Header() {
           <div className={styles.row_wrap}>
             <div className={styles.logo_wrap}>
               <span className={styles.logo}>
-                <a href="/">SRMIST</a>
+                {/* <a href="/">SRMIST</a> */}
+                <Link
+                  onClick={() => {
+                    setActiveNav("");
+                  }}
+                  to="/"
+                >
+                  SRMIST
+                </Link>
               </span>
             </div>
             <div
@@ -26,17 +40,61 @@ function Header() {
               }
             >
               <ul className={styles.nav_list}>
-                <li className={styles.active}>
-                  <a href="/">First Semester</a>
+                <li
+                  className={
+                    activeNav === "first-semester" ? styles.active : ""
+                  }
+                >
+                  <Link
+                    onClick={() => {
+                      setActiveNav("first-semester");
+                    }}
+                    to="/first-semester"
+                  >
+                    First Semester
+                  </Link>
                 </li>
-                <li>
-                  <a href="/">Second Semester</a>
+                <li
+                  className={
+                    activeNav === "second-semester" ? styles.active : ""
+                  }
+                >
+                  <Link
+                    onClick={() => {
+                      setActiveNav("second-semester");
+                    }}
+                    to="/second-semester"
+                  >
+                    Second Semester
+                  </Link>
                 </li>
-                <li>
-                  <a href="/">Third Semester</a>
+                <li
+                  className={
+                    activeNav === "third-semester" ? styles.active : ""
+                  }
+                >
+                  <Link
+                    onClick={() => {
+                      setActiveNav("third-semester");
+                    }}
+                    to="/third-semester"
+                  >
+                    Third Semester
+                  </Link>
                 </li>
-                <li>
-                  <a href="/">Fourth Semester</a>
+                <li
+                  className={
+                    activeNav === "fourth-semester" ? styles.active : ""
+                  }
+                >
+                  <Link
+                    onClick={() => {
+                      setActiveNav("fourth-semester");
+                    }}
+                    to="/fourth-semester"
+                  >
+                    Fourth Semester
+                  </Link>
                 </li>
               </ul>
             </div>
