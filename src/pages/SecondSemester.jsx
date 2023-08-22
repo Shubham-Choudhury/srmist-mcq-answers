@@ -59,20 +59,18 @@ function SecondSemester() {
   let isListEmpty = false;
   for (let i = 0; i < navigationData.length; i++) {
     if (navigationData[i].id === selectSubject) {
-      // if(selectWeek){
-      //   
-      // }
-      // console.log(`selectWeek:${selectWeek}`)
-      if(navigationData[i].data.length === 0){
+      if (navigationData[i].data.length === 0) {
         isListEmpty = true;
-      }
-      else{
+      } else if (
+        navigationData[i].data.length < `${selectWeek ? +selectWeek : 0}`
+      ) {
+        isListEmpty = true;
+      } else {
         data = navigationData[i].data[selectWeek - 1];
       }
       break;
     }
   }
-
 
   return (
     <>
@@ -84,7 +82,11 @@ function SecondSemester() {
         navigationData={navigationData}
       />
 
-      {(selectSubject && selectWeek && !isListEmpty) ? <AppBody data={data} /> : ""}
+      {selectSubject && selectWeek && !isListEmpty ? (
+        <AppBody data={data} />
+      ) : (
+        ""
+      )}
     </>
   );
 }
