@@ -10,10 +10,6 @@ function Header() {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  // const navClickHandler = (nav)=>{
-
-  // }
-
   return (
     <>
       <header className={styles.header}>
@@ -21,7 +17,6 @@ function Header() {
           <div className={styles.row_wrap}>
             <div className={styles.logo_wrap}>
               <span className={styles.logo}>
-                {/* <a href="/">SRMIST</a> */}
                 <Link
                   onClick={() => {
                     setActiveNav("");
@@ -41,6 +36,7 @@ function Header() {
             >
               <ul className={styles.nav_list}>
                 <li
+                  onClick={menuClickHandler}
                   className={
                     activeNav === "first-semester" ? styles.active : ""
                   }
@@ -55,6 +51,7 @@ function Header() {
                   </Link>
                 </li>
                 <li
+                  onClick={menuClickHandler}
                   className={
                     activeNav === "second-semester" ? styles.active : ""
                   }
@@ -69,6 +66,7 @@ function Header() {
                   </Link>
                 </li>
                 <li
+                  onClick={menuClickHandler}
                   className={
                     activeNav === "third-semester" ? styles.active : ""
                   }
@@ -83,6 +81,7 @@ function Header() {
                   </Link>
                 </li>
                 <li
+                  onClick={menuClickHandler}
                   className={
                     activeNav === "fourth-semester" ? styles.active : ""
                   }
